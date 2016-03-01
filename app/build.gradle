@@ -25,10 +25,12 @@ android {
         versionCode 1
         versionName "1.0"
 
-        /*ndk {
+
+        ndk {
             moduleName "myjni"
+            cFlags "-I/${System.properties['user.home']}/OpenCV-android-sdk-3.1.0/sdk/native/jni/include/" // index header file for jni (can use "Go To Declaration")
             ldLibs "android", "log"
-        }*/
+        }
 
         sourceSets.main {
             jni.srcDirs = [] //disable automatic ndk-build call
