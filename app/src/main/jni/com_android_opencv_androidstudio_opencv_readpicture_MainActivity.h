@@ -15,6 +15,14 @@ extern "C" {
 JNIEXPORT jstring JNICALL Java_com_android_opencv_androidstudio_1opencv_1readpicture_MainActivity_stringFromJNI
   (JNIEnv *, jobject);
 
+/*
+ * Class:     com_android_opencv_androidstudio_opencv_readpicture_MainActivity
+ * Method:    imageProcessJNI
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_com_android_opencv_androidstudio_1opencv_1readpicture_MainActivity_imageProcessJNI
+  (JNIEnv *, jobject);
+
 #ifdef __cplusplus
 }
 #endif

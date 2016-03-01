@@ -1,0 +1,4 @@
+APP_MODULES := myjni
+
+APP_ABI := armeabi-v7a
+APP_STL := gnustl_static

@@ -37,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
         Mat mat_small = new Mat(100, 100, CvType.CV_8UC3);
         Imgproc.resize(mat, mat_small, mat_small.size());
         Imgcodecs.imwrite("/mnt/sdcard/Download/lena_small.jpg", mat_small);
+
+        // image process (jni)
+        imageProcessJNI();
     }
 
     private BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(this) {
@@ -80,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public native String stringFromJNI();
+    public native void imageProcessJNI();
 
     static {
         System.loadLibrary("myjni");
