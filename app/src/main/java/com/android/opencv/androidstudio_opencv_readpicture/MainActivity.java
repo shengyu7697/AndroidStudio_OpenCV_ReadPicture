@@ -63,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
 
         iv = new ImageView(this);
         setContentView(iv);
+
+        Log.i(TAG, "call stringFromJNI(), return string: " + stringFromJNI());
     }
 
     @Override
@@ -75,5 +77,11 @@ public class MainActivity extends AppCompatActivity {
             Log.d(TAG, "OpenCV library found inside package. Using it!");
             mLoaderCallback.onManagerConnected(LoaderCallbackInterface.SUCCESS);
         }
+    }
+
+    public native String stringFromJNI();
+
+    static {
+        System.loadLibrary("myjni");
     }
 }
