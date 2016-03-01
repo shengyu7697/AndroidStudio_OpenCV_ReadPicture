@@ -42,24 +42,6 @@ public class MainActivity extends AppCompatActivity {
         imageProcessJNI();
     }
 
-    private BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(this) {
-        @Override
-        public void onManagerConnected(int status) {
-            switch (status) {
-                case LoaderCallbackInterface.SUCCESS: {
-                    Log.i(TAG, "OpenCV loaded successfully");
-
-                    imageProcess();
-
-                } break;
-                default:
-                {
-                    super.onManagerConnected(status);
-                } break;
-            }
-        }
-    };
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,18 +50,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(iv);
 
         Log.i(TAG, "call stringFromJNI(), return string: " + stringFromJNI());
-    }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        if (!OpenCVLoader.initDebug()) {
-            Log.d(TAG, "Internal OpenCV library not found. Using OpenCV Manager for initialization");
-            OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_3_0_0, this, mLoaderCallback);
-        } else {
-            Log.d(TAG, "OpenCV library found inside package. Using it!");
-            mLoaderCallback.onManagerConnected(LoaderCallbackInterface.SUCCESS);
-        }
+        imageProcess();
     }
 
     public native String stringFromJNI();
@@ -87,5 +59,6 @@ public class MainActivity extends AppCompatActivity {
 
     static {
         System.loadLibrary("myjni");
+        System.loadLibrary("opencv_java3");
     }
 }
