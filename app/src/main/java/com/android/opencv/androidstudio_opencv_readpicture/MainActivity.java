@@ -40,6 +40,10 @@ public class MainActivity extends AppCompatActivity {
 
         // image process (jni)
         imageProcessJNI();
+
+        // image process gray (jni)
+        imageProcessGrayJNI(mat.getNativeObjAddr());
+        Imgcodecs.imwrite("/mnt/sdcard/Download/lena_gray.jpg", mat);
     }
 
     @Override
@@ -56,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
     public native String stringFromJNI();
     public native void imageProcessJNI();
+    public native void imageProcessGrayJNI(long matAddr);
 
     static {
         System.loadLibrary("myjni");

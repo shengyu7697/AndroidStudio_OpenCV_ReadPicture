@@ -23,6 +23,14 @@ JNIEXPORT jstring JNICALL Java_com_android_opencv_androidstudio_1opencv_1readpic
 JNIEXPORT void JNICALL Java_com_android_opencv_androidstudio_1opencv_1readpicture_MainActivity_imageProcessJNI
   (JNIEnv *, jobject);
 
+/*
+ * Class:     com_android_opencv_androidstudio_opencv_readpicture_MainActivity
+ * Method:    imageProcessGrayJNI
+ * Signature: (J)V
+ */
+JNIEXPORT void JNICALL Java_com_android_opencv_androidstudio_1opencv_1readpicture_MainActivity_imageProcessGrayJNI
+  (JNIEnv *, jobject, jlong);
+
 #ifdef __cplusplus
 }
 #endif

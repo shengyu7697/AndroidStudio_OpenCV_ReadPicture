@@ -27,3 +27,12 @@ JNIEXPORT void JNICALL Java_com_android_opencv_androidstudio_1opencv_1readpictur
     resize(mat, mat_small, mat_small.size());
     imwrite("/mnt/sdcard/Download/lena_small2.jpg", mat_small);
 }
+
+JNIEXPORT void JNICALL Java_com_android_opencv_androidstudio_1opencv_1readpicture_MainActivity_imageProcessGrayJNI
+        (JNIEnv *env, jobject obj, jlong matAddr)
+{
+    LOGW("Java_com_android_opencv_androidstudio_1opencv_1readpicture_MainActivity_imageProcessGrayJNI()");
+
+    Mat& mat = *(Mat*)matAddr;
+    cvtColor(mat, mat, COLOR_BGR2GRAY);
+}
